@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Employees with Birthdays Today</title>
+   
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Employees with Birthdays Today</h1>
+        <ul class="employee-list">
+            {% for employee in employees %}
+                <li class="employee-item">
+                    <span class="employee-name">{{ employee.name }}</span>
+                    <span class="birthday-date">Birthday: {{ employee.birth_date|date:"F d" }}</span>
+                </li>
+            {% empty %}
+                <li class="no-birthdays">No employees have birthdays today.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

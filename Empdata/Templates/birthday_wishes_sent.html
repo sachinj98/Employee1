@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Happy Birthday!</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="{% static 'birthday_styles.css' %}">
+</head>
+<body>
+    <div class="container text-center">
+        <div class="jumbotron mt-5">
+            <h1 class="display-4">Happy Birthday!</h1>
+            {% if employee %}
+                <p class="lead">Dear {{ employee.name }},</p>
+                <p class="lead">Wishing you a very Happy Birthday! 🎂🎉</p>
+            {% else %}
+                <p class="lead">No employees have birthdays today.</p>
+            {% endif %}
+            <hr class="my-4">
+            <a class="btn btn-primary btn-lg" href="{% url 'employee_list' %}" role="button">Employee List</a>
+        </div>
+    </div>
+</body>
+</html>
